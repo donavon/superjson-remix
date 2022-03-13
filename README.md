@@ -1,5 +1,9 @@
 # superjson-remix
 
+<p align="center">
+  <img alt="superjson" src="./docs/superjson-remix.png" width="400" />
+</p>
+
 A solution for Remix that allows you to send binary data from your `loader` function to your React client app. It uses the awesome [`superjson`](https://github.com/blitz-js/superjson) package to serialize/deserialize your data automatically.
 
 ## Problem
