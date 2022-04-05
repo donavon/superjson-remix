@@ -3,6 +3,7 @@ import {
   json as remixJson,
   MetaFunction,
   useLoaderData as useRemixLoaderData,
+  useActionData as useRemixActionData,
 } from 'remix';
 import { serialize, deserialize } from 'superjson';
 import { SuperJSONResult } from 'superjson/dist/types';
@@ -37,4 +38,12 @@ export const withSuperJSON = <Data,>(
 export const useLoaderData = <Data,>() => {
   const loaderData = useRemixLoaderData<SuperJSONResult>();
   return parse<Data>(loaderData);
+};
+
+export const useActionData = <Data,>() => {
+  const actionData = useRemixActionData<SuperJSONResult>();
+  if (actionData) {
+    return parse<Data>(actionData);
+  }
+  return;
 };

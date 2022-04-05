@@ -104,6 +104,16 @@ Server time: 3/13/2022, 1:05:20 PM
 A large number: 9007199254740991
 ```
 
+## useActionData
+
+You can also use it for useActionData in the same way as for useLoaderData
+
+```js
+import { json, useActionData } from 'superjson-remix';
+...
+const { set, now, largeNumber } = useActionData();
+```
+
 ## Oh, yeah. The `meta` function.
 
 We provide a `withSuperJSON` higher-order function that wraps your `meta` function and will automatically deserialize the `data` argument.
