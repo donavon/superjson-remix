@@ -1,9 +1,8 @@
 import {
   HtmlMetaDescriptor,
-  json as remixJson,
-  MetaFunction,
   useLoaderData as useRemixLoaderData,
-} from 'remix';
+} from '@remix-run/react';
+import { json as remixJson, MetaFunction } from '@remix-run/node';
 import { serialize, deserialize } from 'superjson';
 import { SuperJSONResult } from 'superjson/dist/types';
 
