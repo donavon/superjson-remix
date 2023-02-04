@@ -1,9 +1,9 @@
 import {
   HtmlMetaDescriptor,
-  json as remixJson,
-  MetaFunction,
   useLoaderData as useRemixLoaderData,
-} from 'remix';
+} from '@remix-run/react';
+
+import { json as remixJson, MetaFunction } from '@remix-run/node';
 import { serialize, deserialize } from 'superjson';
 import { SuperJSONResult } from 'superjson/dist/types';
 
@@ -35,6 +35,8 @@ export const withSuperJSON = <Data,>(
   metaFn({ ...rest, data: parse<Data>(data) });
 
 export const useLoaderData = <Data,>() => {
-  const loaderData = useRemixLoaderData<SuperJSONResult>();
+  const loaderData = useRemixLoaderData<any>(); // HACK: any to avoid type error
   return parse<Data>(loaderData);
 };
+
+export const useSuperJSONLoaderData = useLoaderData;
